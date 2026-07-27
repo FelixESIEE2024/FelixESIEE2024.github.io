@@ -144,8 +144,70 @@ h3 {
   background: var(--light);
 }
 
+.metric-section {
+  padding-top: 0.5rem;
+}
+
 .section p {
   text-align: justify;
+}
+
+.formula {
+  display: flex;
+  overflow-x: auto;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  margin: 1.8rem 0;
+  padding: 1.4rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background: var(--light);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.05rem, 3vw, 1.35rem);
+  white-space: nowrap;
+}
+
+.formula-name {
+  font-style: normal;
+}
+
+.fraction {
+  display: inline-flex;
+  min-width: 2.1rem;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.1;
+}
+
+.fraction span:first-child {
+  width: 100%;
+  padding-bottom: 0.15rem;
+  border-bottom: 1px solid currentColor;
+  text-align: center;
+}
+
+.fraction span:last-child {
+  padding-top: 0.15rem;
+}
+
+.sum {
+  font-size: 2.1rem;
+  line-height: 1;
+}
+
+.sum-index {
+  align-self: flex-end;
+  margin-left: -2.55rem;
+  padding-bottom: 0.05rem;
+  font-size: 0.72rem;
+}
+
+.metric-limit {
+  margin-bottom: 0;
+  padding-left: 1rem;
+  border-left: 3px solid var(--border);
+  color: var(--muted);
 }
 
 .section-intro {

@@ -95,6 +95,46 @@
         </div>
       </section>
 
+      <section class="section metric-section">
+        <div class="container text-container">
+          <h2>Métrique</h2>
+          <p>
+            La comparaison repose sur l’<strong>erreur photométrique moyenne absolue</strong>
+            (<em>Mean Absolute Photometric Error</em>, MAE). Pour chaque pixel valide, nous
+            comparons l’intensité de l’image réellement observée à celle de l’image reconstruite par
+            reprojection géométrique.
+          </p>
+
+          <div class="formula" aria-label="Formule de l'erreur photométrique moyenne absolue">
+            <span class="formula-name">MAE</span>
+            <span>=</span>
+            <span class="fraction">
+              <span>1</span>
+              <span>|V|</span>
+            </span>
+            <span class="sum">∑</span>
+            <span class="sum-index">p ∈ V</span>
+            <span>
+              | I<sub>observée</sub>(p) − I<sub>reconstruite</sub>(p) |
+            </span>
+          </div>
+
+          <p>
+            <strong>V</strong> désigne l’ensemble des pixels pouvant être comparés de manière fiable.
+            Les pixels projetés hors de l’image ou masqués par une occultation sont exclus à l’aide
+            du masque de validité et du z-buffer. Une erreur faible indique que le mouvement et la
+            géométrie estimés expliquent correctement l’image suivante ; une erreur élevée signale
+            une incohérence possible.
+          </p>
+          <p class="metric-limit">
+            Cette erreur ne dépend cependant pas uniquement de l’origine réelle ou générée de la
+            vidéo : la difficulté de la scène et les erreurs d’estimation peuvent également
+            l’augmenter. C’est pourquoi elle est surtout interprétée dans des comparaisons entre
+            vidéos appariées.
+          </p>
+        </div>
+      </section>
+
       <section class="section light-section">
         <div class="container text-container">
           <h2>Problématique</h2>
