@@ -7,410 +7,462 @@
       name="description"
       content="Projet de recherche sur la détection de vidéos générées par intelligence artificielle par analyse de la cohérence géométrique 3D."
     />
-    <meta name="theme-color" content="#f7f8fc" />
     <title>Détection de vidéos générées par IA — Cohérence géométrique 3D</title>
     <link rel="stylesheet" href="assets/css/style.css" />
     <script src="assets/js/main.js" defer></script>
   </head>
 
   <body>
-    <a class="skip-link" href="#contenu">Aller au contenu</a>
+    <main>
+      <section class="hero">
+        <div class="container">
+          <h1>
+            Détection de vidéos générées par intelligence artificielle par analyse de la cohérence
+            géométrique 3D
+          </h1>
 
-    <header class="site-header">
-      <div class="nav-shell">
-        <a class="brand" href="#accueil" aria-label="Retour à l'accueil">
-          <span class="brand-mark" aria-hidden="true">3D</span>
-          <span>Cohérence géométrique</span>
-        </a>
-        <nav class="main-nav" aria-label="Navigation principale">
-          <a href="#approche">Approche</a>
-          <a href="#donnees">Données</a>
-          <a href="#exemples">Exemples</a>
-          <a href="#resultats">Résultats</a>
-        </nav>
-      </div>
-    </header>
-
-    <main id="contenu">
-      <section class="hero" id="accueil">
-        <div class="hero-glow hero-glow--one" aria-hidden="true"></div>
-        <div class="hero-glow hero-glow--two" aria-hidden="true"></div>
-        <div class="page-shell hero-grid">
-          <div class="hero-copy">
-            <p class="eyebrow">Projet de recherche · Vision par ordinateur 3D · 2025–2026</p>
-            <h1>
-              Détection de vidéos générées par intelligence artificielle
-              <span>par analyse de la cohérence géométrique 3D</span>
-            </h1>
-            <p class="hero-intro">
-              Une méthode interprétable pour mesurer si la géométrie d’une scène reste cohérente
-              d’une image à l’autre.
-            </p>
-
-            <div class="people" aria-label="Auteur et encadrement">
-              <div>
-                <span class="people-label">Auteur</span>
-                <a
-                  href="https://www.linkedin.com/in/f%C3%A9lix-conqui-13b0302a9/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Félix Conqui
-                </a>
-              </div>
-              <div>
-                <span class="people-label">Encadrement scientifique</span>
-                <span>Emanuel Trabes · Carlos Valderrama</span>
-              </div>
-            </div>
-
-            <div class="hero-actions" aria-label="Ressources du projet">
-              <a
-                class="button button--primary"
-                href="assets/documents/rapport-final.pdf"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Lire le rapport
-                <span aria-hidden="true">↗</span>
-              </a>
-              <!-- À compléter : remplacer # par l'URL du dépôt public. -->
-              <a class="button button--secondary button--disabled" href="#" data-placeholder>
-                Code <span class="button-note">à venir</span>
-              </a>
-              <!-- À compléter : remplacer # par l'URL du jeu de données. -->
-              <a class="button button--secondary button--disabled" href="#" data-placeholder>
-                Données <span class="button-note">à venir</span>
-              </a>
-              <a
-                class="button button--quiet"
-                href="https://www.linkedin.com/in/f%C3%A9lix-conqui-13b0302a9/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                LinkedIn
-              </a>
-            </div>
-          </div>
-
-          <aside class="hero-card" aria-label="Idée centrale du projet">
-            <div class="hero-card-top">
-              <span class="status-dot"></span>
-              <span>Signal étudié</span>
-            </div>
-            <p class="hero-card-title">Une scène réelle doit rester explicable en 3D.</p>
-            <div class="signal">
-              <div class="signal-frame">
-                <span>Image i</span>
-                <div class="signal-grid" aria-hidden="true"></div>
-              </div>
-              <span class="signal-arrow" aria-hidden="true">→</span>
-              <div class="signal-frame signal-frame--accent">
-                <span>Image i+1</span>
-                <div class="signal-grid signal-grid--shifted" aria-hidden="true"></div>
-              </div>
-            </div>
-            <p class="hero-card-copy">
-              Les écarts de reprojection révèlent les déformations ou apparitions difficiles à
-              expliquer par un mouvement de caméra cohérent.
-            </p>
-          </aside>
-        </div>
-      </section>
-
-      <section class="section section--compact">
-        <div class="page-shell">
-          <figure class="feature-figure">
-            <div class="figure-header">
-              <div>
-                <p class="section-kicker">Pipeline principal</p>
-                <h2>Reconstruire, reprojeter, comparer</h2>
-              </div>
-              <span class="figure-tag">Erreur photométrique</span>
-            </div>
-            <div class="image-surface">
-              <img
-                src="assets/images/pipeline-reprojection.png"
-                alt="Pipeline de reprojection : estimation de profondeur, reconstruction 3D, mouvement de caméra, reprojection puis calcul de l'erreur entre deux images."
-              />
-            </div>
-            <figcaption>
-              Une image est reconstruite en 3D, déplacée selon la pose estimée de la caméra puis
-              reprojetée vers l’image suivante. La différence avec l’observation réelle forme le
-              signal d’incohérence.
-            </figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <section class="section" id="approche">
-        <div class="page-shell narrow-shell">
-          <div class="section-heading section-heading--center">
-            <p class="section-kicker">Résumé</p>
-            <h2>Détecter ce que le réalisme visuel ne montre pas</h2>
-          </div>
-          <p class="abstract">
-            Ce projet étudie si les vidéos générées par IA laissent une signature géométrique
-            mesurable. Pour chaque séquence, la profondeur, la caméra et le mouvement sont estimés
-            afin de reconstruire une image depuis la précédente. L’écart entre cette reconstruction
-            et l’image observée met en évidence des incohérences temporelles parfois imperceptibles
-            à l’œil. Les expériences montrent que ce signal est pertinent pour comparer deux vidéos
-            d’une même scène, mais qu’il ne suffit pas encore à classifier des vidéos arbitraires.
+          <p class="authors">
+            <a
+              href="https://www.linkedin.com/in/f%C3%A9lix-conqui-13b0302a9/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Félix Conqui
+            </a>
           </p>
+          <p class="supervisors">Encadrement scientifique : Emanuel Trabes et Carlos Valderrama</p>
+          <p class="date">Projet de recherche · 2025–2026</p>
 
-          <div class="method-grid" aria-label="Étapes de la méthode">
-            <article class="method-card">
-              <span class="method-number">01</span>
-              <h3>Estimer la scène</h3>
-              <p>Profondeur, paramètres intrinsèques et mouvement relatif de la caméra.</p>
-            </article>
-            <article class="method-card">
-              <span class="method-number">02</span>
-              <h3>Reprojeter</h3>
-              <p>Transformer les pixels en points 3D puis reconstruire l’image suivante.</p>
-            </article>
-            <article class="method-card">
-              <span class="method-number">03</span>
-              <h3>Mesurer l’écart</h3>
-              <p>Comparer la reconstruction à l’image observée sur les pixels valides.</p>
-            </article>
+          <div class="publication-links">
+            <a
+              class="button"
+              href="assets/documents/rapport-final.pdf"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Rapport
+            </a>
+            <!-- À compléter : remplacer # par l'URL du dépôt public. -->
+            <a class="button button-disabled" href="#" data-placeholder>Code</a>
+            <!-- À compléter : remplacer # par l'URL du jeu de données. -->
+            <a class="button button-disabled" href="#" data-placeholder>Données</a>
+            <a
+              class="button"
+              href="https://www.linkedin.com/in/f%C3%A9lix-conqui-13b0302a9/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              LinkedIn
+            </a>
           </div>
         </div>
       </section>
 
-      <section class="section section--tinted" id="donnees">
-        <div class="page-shell">
-          <div class="split-heading">
-            <div>
-              <p class="section-kicker">Protocole expérimental</p>
-              <h2>Comparer des vidéos par paire</h2>
-            </div>
-            <p>
-              Pour neutraliser la variabilité entre scènes, la première et la dernière image d’une
-              vidéo réelle sont données à Luma AI, qui génère une séquence intermédiaire comparable.
-            </p>
-          </div>
-
-          <figure class="feature-figure feature-figure--flat">
-            <div class="image-surface image-surface--white">
-              <img
-                src="assets/images/protocole-paires.png"
-                alt="Protocole de génération par paire : extraction de la première et de la dernière image d'une vidéo réelle, création d'un prompt, puis génération d'une vidéo synthétique."
-                loading="lazy"
-              />
-            </div>
+      <section class="teaser">
+        <div class="container">
+          <figure>
+            <img
+              src="assets/images/pipeline-reprojection.png"
+              alt="Pipeline de reprojection géométrique entre deux images successives."
+            />
             <figcaption>
-              Cette construction permet de confronter une séquence réelle et une séquence générée
-              décrivant le même objet et un mouvement de caméra proche.
+              Pipeline de reprojection géométrique. Une image est reconstruite en 3D, transformée
+              selon le mouvement estimé de la caméra, puis reprojetée afin d’être comparée à l’image
+              suivante.
             </figcaption>
           </figure>
         </div>
       </section>
 
-      <section class="section" id="exemples">
-        <div class="page-shell">
-          <div class="section-heading">
-            <p class="section-kicker">Exemples</p>
-            <h2>Réel ou généré : la différence est-elle visible ?</h2>
-            <p>
-              Les vidéos sont présentées côte à côte. Le premier exemple sert uniquement à observer
-              la difficulté du problème ; aucun score n’y est affiché.
-            </p>
-          </div>
-
-          <article class="video-case">
-            <div class="case-heading">
-              <div>
-                <span class="case-index">Cas 01</span>
-                <h3>Camion-jouet</h3>
-              </div>
-              <span class="case-note">Observation seule · aucun résultat affiché</span>
-            </div>
-            <div class="video-grid">
-              <figure class="video-card">
-                <div class="video-label">
-                  <span class="label-dot label-dot--real"></span>
-                  Vidéo réelle
-                </div>
-                <video
-                  controls
-                  muted
-                  loop
-                  playsinline
-                  preload="metadata"
-                  aria-label="Vidéo réelle du camion-jouet"
-                >
-                  <source src="assets/videos/toytruck-reel.mp4" type="video/mp4" />
-                  Votre navigateur ne prend pas en charge la vidéo HTML5.
-                </video>
-              </figure>
-              <figure class="video-card">
-                <div class="video-label">
-                  <span class="label-dot label-dot--generated"></span>
-                  Vidéo générée
-                </div>
-                <video
-                  controls
-                  muted
-                  loop
-                  playsinline
-                  preload="metadata"
-                  aria-label="Vidéo générée du camion-jouet"
-                >
-                  <source src="assets/videos/toytruck-genere.mp4" type="video/mp4" />
-                  Votre navigateur ne prend pas en charge la vidéo HTML5.
-                </video>
-              </figure>
-            </div>
-          </article>
-
-          <article class="video-case">
-            <div class="case-heading">
-              <div>
-                <span class="case-index">Cas 02</span>
-                <h3>Banc de parc</h3>
-              </div>
-              <div class="score-pills" aria-label="Scores moyens">
-                <span class="score-pill score-pill--real">Réel <strong>7,359</strong></span>
-                <span class="score-pill score-pill--generated">Généré <strong>12,058</strong></span>
-              </div>
-            </div>
-            <div class="video-grid">
-              <figure class="video-card">
-                <div class="video-label">
-                  <span class="label-dot label-dot--real"></span>
-                  Vidéo réelle
-                </div>
-                <video
-                  controls
-                  muted
-                  loop
-                  playsinline
-                  preload="metadata"
-                  aria-label="Vidéo réelle du banc de parc"
-                >
-                  <source src="assets/videos/bench-reel.mp4" type="video/mp4" />
-                  Votre navigateur ne prend pas en charge la vidéo HTML5.
-                </video>
-              </figure>
-              <figure class="video-card">
-                <div class="video-label">
-                  <span class="label-dot label-dot--generated"></span>
-                  Vidéo générée
-                </div>
-                <video
-                  controls
-                  muted
-                  loop
-                  playsinline
-                  preload="metadata"
-                  aria-label="Vidéo générée du banc de parc"
-                >
-                  <source src="assets/videos/bench-genere.mp4" type="video/mp4" />
-                  Votre navigateur ne prend pas en charge la vidéo HTML5.
-                </video>
-              </figure>
-            </div>
-            <figure class="result-figure">
-              <img
-                src="assets/images/resultat-bench.png"
-                alt="Courbes de l'erreur photométrique par image pour la vidéo réelle et la vidéo générée du banc."
-                loading="lazy"
-              />
-              <figcaption>
-                Pour cette paire, l’erreur photométrique moyenne de la vidéo générée est nettement
-                supérieure à celle de la vidéo réelle.
-              </figcaption>
-            </figure>
-          </article>
+      <section class="section">
+        <div class="container text-container">
+          <h2>Résumé</h2>
+          <p>
+            Ce projet exploratoire étudie dans quelle mesure les incohérences géométriques peuvent
+            constituer un indice pertinent pour analyser des vidéos générées par intelligence
+            artificielle. L’approche consiste à estimer la profondeur et le mouvement de la caméra,
+            puis à reconstruire une image de la vidéo à partir de la précédente. L’écart entre
+            l’image reconstruite et l’image réellement observée fournit une erreur photométrique,
+            utilisée comme mesure de cohérence géométrique.
+          </p>
+          <p>
+            Les résultats montrent que l’hypothèse est partiellement vérifiée. Dans un cadre
+            contrôlé, la métrique détecte des déformations artificielles et distingue généralement
+            une vidéo générée de sa vidéo réelle de référence. En revanche, sur des scènes non
+            appariées, l’erreur dépend trop fortement du contenu, du mouvement et des conditions
+            d’acquisition pour permettre une classification générale fiable.
+          </p>
         </div>
       </section>
 
-      <section class="section section--dark" id="resultats">
-        <div class="page-shell">
-          <div class="split-heading split-heading--dark">
-            <div>
-              <p class="section-kicker">Résultats clés</p>
-              <h2>Un signal prometteur, dans un cadre contrôlé</h2>
+      <section class="section light-section">
+        <div class="container text-container">
+          <h2>Problématique</h2>
+          <p class="question">
+            Les vidéos générées par intelligence artificielle présentent-elles des incohérences
+            géométriques exploitables pour les distinguer de vidéos authentiques ?
+          </p>
+          <p>
+            Les méthodes traditionnelles recherchent principalement des artefacts numériques liés
+            à la génération, à la compression ou aux statistiques des pixels. Ces traces deviennent
+            cependant moins visibles avec l’amélioration des modèles génératifs. Ce travail explore
+            une autre piste : vérifier si une vidéo respecte les contraintes physiques et
+            géométriques d’une scène tridimensionnelle.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <h2>Méthode</h2>
+          <div class="steps">
+            <div class="step">
+              <strong>1. Estimation</strong>
+              <p>Estimation de la profondeur, des paramètres de caméra et de la pose relative.</p>
             </div>
+            <div class="step">
+              <strong>2. Reconstruction</strong>
+              <p>Transformation des pixels de l’image en points 3D.</p>
+            </div>
+            <div class="step">
+              <strong>3. Reprojection</strong>
+              <p>Projection des points reconstruits dans l’image suivante.</p>
+            </div>
+            <div class="step">
+              <strong>4. Comparaison</strong>
+              <p>Calcul de l’écart entre l’image prédite et l’image observée.</p>
+            </div>
+          </div>
+          <div class="text-container method-text">
             <p>
-              La cohérence géométrique fonctionne surtout comme outil de comparaison relative et de
-              diagnostic, pas encore comme détecteur universel.
+              Les cartes de profondeur sont obtenues avec <strong>Depth Anything</strong>. Les
+              paramètres intrinsèques sont estimés avec <strong>VGGT</strong>, retenu pour sa
+              stabilité temporelle. La pose relative est calculée par optimisation géométrique et
+              les occultations sont traitées à l’aide d’un z-buffer. Seuls les pixels considérés
+              comme valides participent au calcul final.
             </p>
           </div>
+        </div>
+      </section>
 
-          <div class="stats-grid">
-            <article class="stat-card">
-              <strong>27/33</strong>
-              <span>paires où la vidéo générée présente l’erreur la plus élevée</span>
-            </article>
-            <article class="stat-card">
-              <strong>73 %</strong>
-              <span>des déformations artificielles localisées au bon instant</span>
-            </article>
-            <article class="stat-card">
-              <strong>+26 %</strong>
-              <span>d’erreur moyenne lorsque la fréquence d’images diminue</span>
-            </article>
+      <section class="section light-section">
+        <div class="container">
+          <h2>Création du jeu de données</h2>
+          <div class="text-container">
+            <p>
+              Les vidéos réelles proviennent du jeu de données <strong>Co3D</strong>. Afin de
+              construire des comparaisons pertinentes, la première et la dernière image d’une vidéo
+              réelle sont fournies à <strong>Dream Machine de Luma AI</strong>. Le modèle doit alors
+              générer la séquence intermédiaire en reproduisant la même scène et un mouvement de
+              caméra similaire.
+            </p>
           </div>
-
-          <div class="takeaway">
-            <div class="takeaway-mark" aria-hidden="true">!</div>
-            <div>
-              <h3>Le contexte de la scène reste déterminant</h3>
-              <p>
-                Sans appariement, les moyennes des vidéos réelles et générées sont trop proches pour
-                définir un seuil fiable. Le mouvement, les occultations, les textures et la vitesse
-                d’acquisition influencent aussi le score.
-              </p>
-            </div>
+          <figure>
+            <img
+              src="assets/images/protocole-paires.png"
+              alt="Protocole de génération d'une vidéo appariée à partir de la première et de la dernière image d'une vidéo réelle."
+              loading="lazy"
+            />
+            <figcaption>
+              Protocole de génération d’une séquence appariée à partir de la première et de la
+              dernière image réelles.
+            </figcaption>
+          </figure>
+          <div class="text-container">
+            <p>
+              Une troisième catégorie est créée en déformant localement une image de vidéos réelles
+              avec une transformation Thin-Plate Spline. Ces séquences contrôlées servent à vérifier
+              que la métrique réagit bien à une incohérence géométrique connue.
+            </p>
           </div>
         </div>
       </section>
 
       <section class="section">
-        <div class="page-shell narrow-shell">
-          <div class="section-heading section-heading--center">
-            <p class="section-kicker">Perspectives</p>
-            <h2>Vers une détection plus générale</h2>
+        <div class="container">
+          <h2>Exemples de vidéos appariées</h2>
+          <p class="section-intro">
+            Les vidéos réelles et générées représentent une scène aussi proche que possible. Aucun
+            résultat n’est affiché pour le premier exemple.
+          </p>
+
+          <h3>Camion-jouet</h3>
+          <div class="video-grid">
+            <figure>
+              <div class="video-title">Vidéo réelle</div>
+              <video controls muted loop playsinline preload="metadata">
+                <source src="assets/videos/toytruck-reel.mp4" type="video/mp4" />
+                Votre navigateur ne prend pas en charge la vidéo HTML5.
+              </video>
+            </figure>
+            <figure>
+              <div class="video-title">Vidéo générée</div>
+              <video controls muted loop playsinline preload="metadata">
+                <source src="assets/videos/toytruck-genere.mp4" type="video/mp4" />
+                Votre navigateur ne prend pas en charge la vidéo HTML5.
+              </video>
+            </figure>
           </div>
-          <div class="future-grid">
-            <article>
-              <span>01</span>
-              <h3>Normaliser le mouvement</h3>
-              <p>Réduire l’influence de la vitesse de caméra et de la fréquence d’images.</p>
-            </article>
-            <article>
-              <span>02</span>
-              <h3>Ajouter le contexte</h3>
-              <p>Associer le signal géométrique à une compréhension sémantique de la scène.</p>
-            </article>
-            <article>
-              <span>03</span>
-              <h3>Multiplier les contraintes</h3>
-              <p>Exploiter les lignes, les plans, les normales, les ombres et les trajectoires 3D.</p>
-            </article>
+
+          <h3>Banc</h3>
+          <div class="video-grid">
+            <figure>
+              <div class="video-title">Vidéo réelle</div>
+              <video controls muted loop playsinline preload="metadata">
+                <source src="assets/videos/bench-reel.mp4" type="video/mp4" />
+                Votre navigateur ne prend pas en charge la vidéo HTML5.
+              </video>
+            </figure>
+            <figure>
+              <div class="video-title">Vidéo générée</div>
+              <video controls muted loop playsinline preload="metadata">
+                <source src="assets/videos/bench-genere.mp4" type="video/mp4" />
+                Votre navigateur ne prend pas en charge la vidéo HTML5.
+              </video>
+            </figure>
           </div>
+        </div>
+      </section>
+
+      <section class="section light-section">
+        <div class="container">
+          <h2>Étude expérimentale</h2>
+
+          <article class="experiment">
+            <h3>1. Choix des paramètres intrinsèques</h3>
+            <p>
+              Les paramètres de caméra devraient rester constants dans les vidéos étudiées, qui ne
+              comportent pas de zoom. Sur 100 vidéos réelles, VGGT fournit des estimations beaucoup
+              plus stables que GeoCalib : l’écart-type moyen est de <strong>9,44 pixels</strong>
+              pour VGGT contre <strong>705 pixels</strong> pour GeoCalib. Le moyennage temporel
+              améliore fortement GeoCalib, mais VGGT conserve l’erreur de reprojection la plus
+              faible et est retenu pour la suite.
+            </p>
+            <div class="table-wrapper">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Méthode</th>
+                    <th>Erreur absolue moyenne</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>VGGT</td>
+                    <td>5,288</td>
+                  </tr>
+                  <tr>
+                    <td>VGGT moyenné</td>
+                    <td><strong>5,224</strong></td>
+                  </tr>
+                  <tr>
+                    <td>GeoCalib</td>
+                    <td>9,297</td>
+                  </tr>
+                  <tr>
+                    <td>GeoCalib moyenné</td>
+                    <td>5,397</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+
+          <article class="experiment">
+            <h3>2. Détection d’une image artificiellement modifiée</h3>
+            <p>
+              Avant d’étudier les vidéos générées, une unique image est déformée dans 100 vidéos
+              réelles. La méthode localise correctement cette image dans <strong>73 % des cas</strong>,
+              contre 71,59 % pour la métrique GeCo sur ce sous-ensemble. Cette expérience confirme
+              que l’erreur de reprojection est sensible à une incohérence géométrique locale, même
+              lorsque celle-ci reste difficile à voir.
+            </p>
+            <figure>
+              <img
+                src="assets/images/deformation-detectee.png"
+                alt="Évolution temporelle de l'erreur permettant de détecter une image artificiellement déformée."
+                loading="lazy"
+              />
+              <figcaption>
+                Détection temporelle d’une image artificiellement déformée dans la séquence
+                toytruck.
+              </figcaption>
+            </figure>
+          </article>
+
+          <article class="experiment">
+            <h3>3. Comparaison de vidéos réelles et générées appariées</h3>
+            <p>
+              Sur <strong>27 paires parmi 33</strong>, la vidéo générée présente une erreur
+              photométrique plus élevée que la vidéo réelle. En moyenne, l’erreur passe de
+              <strong>5,894</strong> pour les vidéos réelles à <strong>8,944</strong> pour les vidéos
+              générées. Lorsque les deux séquences représentent la même scène, une partie de la
+              variabilité liée au contenu est neutralisée.
+            </p>
+            <p>
+              Pour la séquence du banc, l’erreur moyenne vaut 7,359 sur la vidéo réelle et 12,058
+              sur la vidéo générée. L’écart est présent sur une grande partie de la séquence et ne
+              repose pas sur une seule image.
+            </p>
+            <figure>
+              <img
+                src="assets/images/resultat-bench.png"
+                alt="Comparaison de l'erreur photométrique image par image pour les vidéos réelle et générée de la séquence bench."
+                loading="lazy"
+              />
+              <figcaption>
+                Comparaison image par image pour la séquence bench : score réel 7,359 et score
+                généré 12,058.
+              </figcaption>
+            </figure>
+          </article>
+
+          <article class="experiment important-result">
+            <h3>4. Résultats sur l’ensemble du jeu de données</h3>
+            <p>
+              Lorsque les vidéos ne sont plus comparées par paire, le résultat est beaucoup moins
+              net. L’erreur moyenne atteint <strong>5,90</strong> pour les vidéos réelles,
+              <strong>6,16</strong> pour les vidéos générées et <strong>9,0</strong> pour les vidéos
+              artificiellement déformées.
+            </p>
+            <div class="table-wrapper">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Groupe</th>
+                    <th>Erreur moyenne</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Vidéos réelles</td>
+                    <td>5,90</td>
+                  </tr>
+                  <tr>
+                    <td>Vidéos générées par IA</td>
+                    <td>6,16</td>
+                  </tr>
+                  <tr>
+                    <td>Vidéos artificiellement modifiées</td>
+                    <td>9,0</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p>
+              Les distributions des vidéos réelles et générées se recouvrent. Un seuil placé entre
+              5,90 et 6,16 produirait donc de nombreux faux positifs et faux négatifs. Une vidéo
+              réelle complexe peut obtenir une erreur supérieure à une vidéo générée simple. Le
+              score mesure non seulement l’origine de la vidéo, mais aussi la texture, la vitesse du
+              mouvement, les occultations, l’éclairage et la difficulté générale de la scène.
+            </p>
+            <p class="conclusion-line">
+              La métrique est donc plus solide pour une comparaison relative entre deux vidéos
+              similaires que pour une décision absolue sur une vidéo arbitraire.
+            </p>
+          </article>
+
+          <article class="experiment">
+            <h3>5. Classification supervisée</h3>
+            <p>
+              Pour éviter de définir manuellement un seuil, les caractéristiques extraites par le
+              pipeline sont données à un classifieur ExtraTrees. La précision obtenue est d’environ
+              <strong>60 %</strong>. Ce résultat dépasse légèrement le hasard pour un problème
+              binaire équilibré, mais reste insuffisant pour valider une détection fiable.
+            </p>
+            <figure>
+              <img
+                src="assets/images/classification-supervisee.png"
+                alt="Pipeline de classification supervisée à partir des caractéristiques extraites pour chaque image."
+                loading="lazy"
+              />
+              <figcaption>
+                Chaîne de classification supervisée à partir des caractéristiques extraites par le
+                pipeline.
+              </figcaption>
+            </figure>
+            <p>
+              Les caractéristiques actuelles restent très dépendantes de la scène et plusieurs
+              d’entre elles reposent sur les mêmes estimations de profondeur et de caméra. Leur
+              combinaison apporte donc en partie de la redondance. L’ajout des sorties de
+              <strong>GeCo</strong> n’améliore pas significativement cette classification globale.
+              Dans le protocole actuel, l’hypothèse selon laquelle un classifieur simple pourrait
+              apprendre automatiquement un seuil général n’est donc pas validée.
+            </p>
+          </article>
+
+          <article class="experiment">
+            <h3>6. Sensibilité aux conditions d’acquisition et au prompt</h3>
+            <p>
+              Sur 30 vidéos, diminuer la fréquence d’images entraîne une augmentation moyenne de
+              l’erreur de <strong>26 %</strong>. Une fréquence plus faible augmente le déplacement
+              apparent entre deux images et rend l’estimation de profondeur, de pose et la
+              reprojection plus difficiles. Les vidéos comparées doivent donc présenter des
+              vitesses de mouvement similaires.
+            </p>
+            <p>
+              Une étude limitée montre également que le prompt influence la cohérence géométrique.
+              Dans 8 cas sur 10, l’ajout d’une consigne demandant explicitement de respecter la
+              cohérence géométrique diminue l’erreur. Le nombre d’essais reste cependant trop faible
+              pour conclure à un effet général.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container text-container">
+          <h2>Analyse et limites</h2>
+          <p>
+            Les expériences sur les déformations contrôlées et les paires appariées montrent que les
+            vidéos générées peuvent contenir des incohérences géométriques mesurables, même lorsque
+            celles-ci sont peu visibles. L’hypothèse de départ est donc partiellement confirmée.
+          </p>
+          <p>
+            Cette conclusion ne se généralise toutefois pas aux scènes non appariées. La méthode
+            dépend encore des estimateurs de profondeur et de caméra, ainsi que de la dynamique de
+            la scène. Elle a principalement été développée sur des environnements rigides avec peu
+            de mouvements indépendants ; elle n’est pas directement adaptée aux personnes, aux
+            objets articulés ou aux interactions complexes.
+          </p>
+          <p>
+            Les améliorations possibles consistent à normaliser le score selon le mouvement,
+            intégrer le contexte sémantique de la scène et exploiter d’autres contraintes telles que
+            les lignes, les plans, les normales de surface, les ombres ou les trajectoires 3D.
+          </p>
+        </div>
+      </section>
+
+      <section class="section conclusion-section">
+        <div class="container text-container">
+          <h2>Conclusion</h2>
+          <p>
+            Le principal résultat de ce projet n’est pas la création d’un détecteur universel de
+            vidéos générées. Il s’agit du développement d’un protocole de comparaison relative et
+            d’un outil de diagnostic fondé sur l’analyse dense des incohérences géométriques. Ce
+            signal est pertinent dans un cadre contrôlé, mais doit être complété par d’autres indices
+            pour aboutir à une méthode fiable et généralisable.
+          </p>
         </div>
       </section>
     </main>
 
-    <footer class="site-footer">
-      <div class="page-shell footer-grid">
-        <div>
-          <strong>Détection de vidéos générées par IA</strong>
-          <p>Projet de recherche en vision par ordinateur 3D · juillet 2026</p>
-        </div>
-        <div class="footer-links">
-          <a href="assets/documents/rapport-final.pdf" target="_blank" rel="noreferrer">Rapport</a>
+    <footer>
+      <div class="container">
+        <p>
+          Projet réalisé par
           <a
             href="https://www.linkedin.com/in/f%C3%A9lix-conqui-13b0302a9/"
             target="_blank"
             rel="noreferrer"
           >
-            Félix Conqui sur LinkedIn
+            Félix Conqui
           </a>
-        </div>
+          · 2026
+        </p>
+        <p>
+          Page inspirée de la mise en forme des pages de projets académiques, notamment GeCo.
+        </p>
       </div>
     </footer>
   </body>
