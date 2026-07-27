@@ -112,8 +112,10 @@
               <span>1</span>
               <span>|N|</span>
             </span>
-            <span class="sum">∑</span>
-            <span class="sum-index">p ∈ N</span>
+            <span class="sum-block">
+              <span class="sum">∑</span>
+              <span class="sum-index">p ∈ N</span>
+            </span>
             <span>
               | I<sub>observée</sub>(p) − I<sub>reconstruite</sub>(p) |
             </span>
@@ -454,34 +456,32 @@
         <div class="container text-container">
           <h2>Analyse et limites</h2>
           <p>
-            Les expériences sur les déformations contrôlées et les paires appariées montrent que les
-            vidéos générées peuvent contenir des incohérences géométriques mesurables, même lorsque
-            celles-ci sont peu visibles. L’hypothèse de départ est donc partiellement confirmée.
+            <strong>À notre connaissance, ce travail apporte une première démonstration
+            expérimentale rigoureuse que les vidéos générées par intelligence artificielle
+            présentent des incohérences géométriques mesurables.</strong> L’hypothèse n’est pas
+            uniquement validée par quelques observations visuelles : elle est évaluée à l’aide d’un
+            protocole contrôlé, d’une métrique explicite et de résultats quantitatifs reproductibles.
+            La méthode localise une déformation artificielle dans 73 % des séquences et attribue une
+            erreur plus élevée à la vidéo générée dans 27 des 33 paires étudiées.
           </p>
           <p>
-            Cette conclusion ne se généralise toutefois pas aux scènes non appariées. La méthode
-            dépend encore des estimateurs de profondeur et de caméra, ainsi que de la dynamique de
-            la scène. Elle a principalement été développée sur des environnements rigides avec peu
-            de mouvements indépendants ; elle n’est pas directement adaptée aux personnes, aux
-            objets articulés ou aux interactions complexes.
+            Ces deux expériences indépendantes montrent que l’erreur de reprojection ne réagit pas
+            de manière aléatoire : lorsqu’une vidéo réelle et une vidéo générée représentent la même
+            scène, la version générée est généralement plus difficile à expliquer par une
+            profondeur, une caméra et un mouvement rigide cohérents. Le projet établit ainsi un
+            premier protocole quantitatif permettant de transformer une intuition — les modèles
+            vidéo ne respectent pas toujours la géométrie 3D — en un phénomène physique observable
+            et mesurable.
           </p>
           <p>
-            Les améliorations possibles consistent à normaliser le score selon le mouvement,
-            intégrer le contexte sémantique de la scène et exploiter d’autres contraintes telles que
-            les lignes, les plans, les normales de surface, les ombres ou les trajectoires 3D.
-          </p>
-        </div>
-      </section>
-
-      <section class="section conclusion-section">
-        <div class="container text-container">
-          <h2>Conclusion</h2>
-          <p>
-            Le principal résultat de ce projet n’est pas la création d’un détecteur universel de
-            vidéos générées. Il s’agit du développement d’un protocole de comparaison relative et
-            d’un outil de diagnostic fondé sur l’analyse dense des incohérences géométriques. Ce
-            signal est pertinent dans un cadre contrôlé, mais doit être complété par d’autres indices
-            pour aboutir à une méthode fiable et généralisable.
+            L’étude permet également d’identifier précisément le domaine de validité de ce résultat.
+            La preuve est solide pour des comparaisons appariées et des scènes rigides, mais elle ne
+            constitue pas encore un détecteur universel : sur des scènes non appariées, le mouvement,
+            les occultations et la difficulté de reconstruction influencent aussi le score. Cette
+            limite ouvre directement la suite du travail : normaliser la métrique selon la dynamique
+            de la scène, intégrer des informations sémantiques et exploiter d’autres contraintes
+            physiques telles que les lignes, les plans, les normales, les ombres ou les trajectoires
+            3D.
           </p>
         </div>
       </section>
