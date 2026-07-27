@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Projet de recherche sur la détection de vidéos générées par intelligence artificielle par analyse de la cohérence géométrique 3D."
+    />
+    <meta name="theme-color" content="#f7f8fc" />
+    <title>Détection de vidéos générées par IA — Cohérence géométrique 3D</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script src="assets/js/main.js" defer></script>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+    <header class="site-header">
+      <div class="nav-shell">
+        <a class="brand" href="#accueil" aria-label="Retour à l'accueil">
+          <span class="brand-mark" aria-hidden="true">3D</span>
+          <span>Cohérence géométrique</span>
+        </a>
+        <nav class="main-nav" aria-label="Navigation principale">
+          <a href="#approche">Approche</a>
+          <a href="#donnees">Données</a>
+          <a href="#exemples">Exemples</a>
+          <a href="#resultats">Résultats</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="contenu">
+      <section class="hero" id="accueil">
+        <div class="hero-glow hero-glow--one" aria-hidden="true"></div>
+        <div class="hero-glow hero-glow--two" aria-hidden="true"></div>
+        <div class="page-shell hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Projet de recherche · Vision par ordinateur 3D · 2025–2026</p>
+            <h1>
+              Détection de vidéos générées par intelligence artificielle
+              <span>par analyse de la cohérence géométrique 3D</span>
+            </h1>
+            <p class="hero-intro">
+              Une méthode interprétable pour mesurer si la géométrie d’une scène reste cohérente
+              d’une image à l’autre.
+            </p>
+
+            <div class="people" aria-label="Auteur et encadrement">
+              <div>
+                <span class="people-label">Auteur</span>
+                <a
+                  href="https://www.linkedin.com/in/f%C3%A9lix-conqui-13b0302a9/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Félix Conqui
+                </a>
+              </div>
+              <div>
+                <span class="people-label">Encadrement scientifique</span>
+                <span>Emanuel Trabes · Carlos Valderrama</span>
+              </div>
+            </div>
+
+            <div class="hero-actions" aria-label="Ressources du projet">
+              <a
+                class="button button--primary"
+                href="assets/documents/rapport-final.pdf"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Lire le rapport
+                <span aria-hidden="true">↗</span>
+              </a>
+              <!-- À compléter : remplacer # par l'URL du dépôt public. -->
+              <a class="button button--secondary button--disabled" href="#" data-placeholder>
+                Code <span class="button-note">à venir</span>
+              </a>
+              <!-- À compléter : remplacer # par l'URL du jeu de données. -->
+              <a class="button button--secondary button--disabled" href="#" data-placeholder>
+                Données <span class="button-note">à venir</span>
+              </a>
+              <a
+                class="button button--quiet"
+                href="https://www.linkedin.com/in/f%C3%A9lix-conqui-13b0302a9/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                LinkedIn
+              </a>
+            </div>
+          </div>
+
+          <aside class="hero-card" aria-label="Idée centrale du projet">
+            <div class="hero-card-top">
+              <span class="status-dot"></span>
+              <span>Signal étudié</span>
+            </div>
+            <p class="hero-card-title">Une scène réelle doit rester explicable en 3D.</p>
+            <div class="signal">
+              <div class="signal-frame">
+                <span>Image i</span>
+                <div class="signal-grid" aria-hidden="true"></div>
+              </div>
+              <span class="signal-arrow" aria-hidden="true">→</span>
+              <div class="signal-frame signal-frame--accent">
+                <span>Image i+1</span>
+                <div class="signal-grid signal-grid--shifted" aria-hidden="true"></div>
+              </div>
+            </div>
+            <p class="hero-card-copy">
+              Les écarts de reprojection révèlent les déformations ou apparitions difficiles à
+              expliquer par un mouvement de caméra cohérent.
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section section--compact">
+        <div class="page-shell">
+          <figure class="feature-figure">
+            <div class="figure-header">
+              <div>
+                <p class="section-kicker">Pipeline principal</p>
+                <h2>Reconstruire, reprojeter, comparer</h2>
+              </div>
+              <span class="figure-tag">Erreur photométrique</span>
+            </div>
+            <div class="image-surface">
+              <img
+                src="assets/images/pipeline-reprojection.png"
+                alt="Pipeline de reprojection : estimation de profondeur, reconstruction 3D, mouvement de caméra, reprojection puis calcul de l'erreur entre deux images."
+              />
+            </div>
+            <figcaption>
+              Une image est reconstruite en 3D, déplacée selon la pose estimée de la caméra puis
+              reprojetée vers l’image suivante. La différence avec l’observation réelle forme le
+              signal d’incohérence.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section" id="approche">
+        <div class="page-shell narrow-shell">
+          <div class="section-heading section-heading--center">
+            <p class="section-kicker">Résumé</p>
+            <h2>Détecter ce que le réalisme visuel ne montre pas</h2>
+          </div>
+          <p class="abstract">
+            Ce projet étudie si les vidéos générées par IA laissent une signature géométrique
+            mesurable. Pour chaque séquence, la profondeur, la caméra et le mouvement sont estimés
+            afin de reconstruire une image depuis la précédente. L’écart entre cette reconstruction
+            et l’image observée met en évidence des incohérences temporelles parfois imperceptibles
+            à l’œil. Les expériences montrent que ce signal est pertinent pour comparer deux vidéos
+            d’une même scène, mais qu’il ne suffit pas encore à classifier des vidéos arbitraires.
+          </p>
+
+          <div class="method-grid" aria-label="Étapes de la méthode">
+            <article class="method-card">
+              <span class="method-number">01</span>
+              <h3>Estimer la scène</h3>
+              <p>Profondeur, paramètres intrinsèques et mouvement relatif de la caméra.</p>
+            </article>
+            <article class="method-card">
+              <span class="method-number">02</span>
+              <h3>Reprojeter</h3>
+              <p>Transformer les pixels en points 3D puis reconstruire l’image suivante.</p>
+            </article>
+            <article class="method-card">
+              <span class="method-number">03</span>
+              <h3>Mesurer l’écart</h3>
+              <p>Comparer la reconstruction à l’image observée sur les pixels valides.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tinted" id="donnees">
+        <div class="page-shell">
+          <div class="split-heading">
+            <div>
+              <p class="section-kicker">Protocole expérimental</p>
+              <h2>Comparer des vidéos par paire</h2>
+            </div>
+            <p>
+              Pour neutraliser la variabilité entre scènes, la première et la dernière image d’une
+              vidéo réelle sont données à Luma AI, qui génère une séquence intermédiaire comparable.
+            </p>
+          </div>
+
+          <figure class="feature-figure feature-figure--flat">
+            <div class="image-surface image-surface--white">
+              <img
+                src="assets/images/protocole-paires.png"
+                alt="Protocole de génération par paire : extraction de la première et de la dernière image d'une vidéo réelle, création d'un prompt, puis génération d'une vidéo synthétique."
+                loading="lazy"
+              />
+            </div>
+            <figcaption>
+              Cette construction permet de confronter une séquence réelle et une séquence générée
+              décrivant le même objet et un mouvement de caméra proche.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section" id="exemples">
+        <div class="page-shell">
+          <div class="section-heading">
+            <p class="section-kicker">Exemples</p>
+            <h2>Réel ou généré : la différence est-elle visible ?</h2>
+            <p>
+              Les vidéos sont présentées côte à côte. Le premier exemple sert uniquement à observer
+              la difficulté du problème ; aucun score n’y est affiché.
+            </p>
+          </div>
+
+          <article class="video-case">
+            <div class="case-heading">
+              <div>
+                <span class="case-index">Cas 01</span>
+                <h3>Camion-jouet</h3>
+              </div>
+              <span class="case-note">Observation seule · aucun résultat affiché</span>
+            </div>
+            <div class="video-grid">
+              <figure class="video-card">
+                <div class="video-label">
+                  <span class="label-dot label-dot--real"></span>
+                  Vidéo réelle
+                </div>
+                <video
+                  controls
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata"
+                  aria-label="Vidéo réelle du camion-jouet"
+                >
+                  <source src="assets/videos/toytruck-reel.mp4" type="video/mp4" />
+                  Votre navigateur ne prend pas en charge la vidéo HTML5.
+                </video>
+              </figure>
+              <figure class="video-card">
+                <div class="video-label">
+                  <span class="label-dot label-dot--generated"></span>
+                  Vidéo générée
+                </div>
+                <video
+                  controls
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata"
+                  aria-label="Vidéo générée du camion-jouet"
+                >
+                  <source src="assets/videos/toytruck-genere.mp4" type="video/mp4" />
+                  Votre navigateur ne prend pas en charge la vidéo HTML5.
+                </video>
+              </figure>
+            </div>
+          </article>
+
+          <article class="video-case">
+            <div class="case-heading">
+              <div>
+                <span class="case-index">Cas 02</span>
+                <h3>Banc de parc</h3>
+              </div>
+              <div class="score-pills" aria-label="Scores moyens">
+                <span class="score-pill score-pill--real">Réel <strong>7,359</strong></span>
+                <span class="score-pill score-pill--generated">Généré <strong>12,058</strong></span>
+              </div>
+            </div>
+            <div class="video-grid">
+              <figure class="video-card">
+                <div class="video-label">
+                  <span class="label-dot label-dot--real"></span>
+                  Vidéo réelle
+                </div>
+                <video
+                  controls
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata"
+                  aria-label="Vidéo réelle du banc de parc"
+                >
+                  <source src="assets/videos/bench-reel.mp4" type="video/mp4" />
+                  Votre navigateur ne prend pas en charge la vidéo HTML5.
+                </video>
+              </figure>
+              <figure class="video-card">
+                <div class="video-label">
+                  <span class="label-dot label-dot--generated"></span>
+                  Vidéo générée
+                </div>
+                <video
+                  controls
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata"
+                  aria-label="Vidéo générée du banc de parc"
+                >
+                  <source src="assets/videos/bench-genere.mp4" type="video/mp4" />
+                  Votre navigateur ne prend pas en charge la vidéo HTML5.
+                </video>
+              </figure>
+            </div>
+            <figure class="result-figure">
+              <img
+                src="assets/images/resultat-bench.png"
+                alt="Courbes de l'erreur photométrique par image pour la vidéo réelle et la vidéo générée du banc."
+                loading="lazy"
+              />
+              <figcaption>
+                Pour cette paire, l’erreur photométrique moyenne de la vidéo générée est nettement
+                supérieure à celle de la vidéo réelle.
+              </figcaption>
+            </figure>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section--dark" id="resultats">
+        <div class="page-shell">
+          <div class="split-heading split-heading--dark">
+            <div>
+              <p class="section-kicker">Résultats clés</p>
+              <h2>Un signal prometteur, dans un cadre contrôlé</h2>
+            </div>
+            <p>
+              La cohérence géométrique fonctionne surtout comme outil de comparaison relative et de
+              diagnostic, pas encore comme détecteur universel.
+            </p>
+          </div>
+
+          <div class="stats-grid">
+            <article class="stat-card">
+              <strong>27/33</strong>
+              <span>paires où la vidéo générée présente l’erreur la plus élevée</span>
+            </article>
+            <article class="stat-card">
+              <strong>73 %</strong>
+              <span>des déformations artificielles localisées au bon instant</span>
+            </article>
+            <article class="stat-card">
+              <strong>+26 %</strong>
+              <span>d’erreur moyenne lorsque la fréquence d’images diminue</span>
+            </article>
+          </div>
+
+          <div class="takeaway">
+            <div class="takeaway-mark" aria-hidden="true">!</div>
+            <div>
+              <h3>Le contexte de la scène reste déterminant</h3>
+              <p>
+                Sans appariement, les moyennes des vidéos réelles et générées sont trop proches pour
+                définir un seuil fiable. Le mouvement, les occultations, les textures et la vitesse
+                d’acquisition influencent aussi le score.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="page-shell narrow-shell">
+          <div class="section-heading section-heading--center">
+            <p class="section-kicker">Perspectives</p>
+            <h2>Vers une détection plus générale</h2>
+          </div>
+          <div class="future-grid">
+            <article>
+              <span>01</span>
+              <h3>Normaliser le mouvement</h3>
+              <p>Réduire l’influence de la vitesse de caméra et de la fréquence d’images.</p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>Ajouter le contexte</h3>
+              <p>Associer le signal géométrique à une compréhension sémantique de la scène.</p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>Multiplier les contraintes</h3>
+              <p>Exploiter les lignes, les plans, les normales, les ombres et les trajectoires 3D.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="page-shell footer-grid">
+        <div>
+          <strong>Détection de vidéos générées par IA</strong>
+          <p>Projet de recherche en vision par ordinateur 3D · juillet 2026</p>
+        </div>
+        <div class="footer-links">
+          <a href="assets/documents/rapport-final.pdf" target="_blank" rel="noreferrer">Rapport</a>
+          <a
+            href="https://www.linkedin.com/in/f%C3%A9lix-conqui-13b0302a9/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Félix Conqui sur LinkedIn
+          </a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
