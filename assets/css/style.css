@@ -289,9 +289,14 @@ figure {
 }
 
 figure img {
-  width: 100%;
+  width: 92%;
   height: auto;
+  margin-inline: auto;
   border-radius: 4px;
+}
+
+.compact-figure img {
+  width: 84%;
 }
 
 figcaption {
@@ -479,6 +484,11 @@ footer p {
   .steps,
   .video-grid {
     grid-template-columns: 1fr;
+  }
+
+  figure img,
+  .compact-figure img {
+    width: 100%;
   }
 
   .important-result {
