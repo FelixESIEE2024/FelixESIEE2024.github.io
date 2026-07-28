@@ -331,6 +331,15 @@ figcaption {
   object-fit: contain;
 }
 
+.heatmap-comparison {
+  margin-top: 1.5rem;
+}
+
+.heatmap-comparison video {
+  aspect-ratio: auto;
+  background: var(--white);
+}
+
 .experiment {
   max-width: var(--text-container);
   margin: 0 auto;
