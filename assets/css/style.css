@@ -225,6 +225,14 @@ h3 {
   color: var(--muted);
 }
 
+.metric-formula {
+  margin: 2rem 0;
+}
+
+.metric-formula img {
+  border-radius: 0;
+}
+
 .section-intro {
   max-width: var(--text-container);
   margin: 0 auto 2rem;
@@ -236,6 +244,27 @@ h3 {
   margin-top: 3.5rem;
   font-size: 1.6rem;
   text-align: center;
+}
+
+.dataset-subsection,
+.paired-examples-title {
+  margin: 3.25rem 0 1rem;
+  text-align: left;
+}
+
+.dataset-subsection {
+  font-size: 1.5rem;
+}
+
+.paired-examples-title {
+  color: #292929;
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.dataset-visual {
+  margin: 1.5rem 0 2.5rem;
 }
 
 .example-title {

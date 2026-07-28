@@ -114,21 +114,13 @@
             reprojection géométrique.
           </p>
 
-          <div class="formula" aria-label="Formule de l'erreur photométrique moyenne absolue">
-            <span class="formula-name">MAE</span>
-            <span>=</span>
-            <span class="fraction">
-              <span>1</span>
-              <span>|N|</span>
-            </span>
-            <span class="sum-block">
-              <span class="sum">∑</span>
-              <span class="sum-index">p ∈ N</span>
-            </span>
-            <span>
-              | I<sub>observée</sub>(p) − I<sub>reconstruite</sub>(p) |
-            </span>
-          </div>
+          <figure class="metric-formula">
+            <img
+              src="assets/images/formule-mae.png"
+              alt="Formule de l’erreur photométrique moyenne absolue : moyenne des différences absolues entre l’image observée et l’image reconstruite."
+              loading="lazy"
+            />
+          </figure>
 
           <p>
             <strong>N</strong> désigne l’ensemble des pixels pouvant être comparés de manière fiable.
@@ -200,15 +192,58 @@
         <div class="container">
           <h2>Création du jeu de données</h2>
           <div class="text-container">
+            <p>Voici son contenu résumé :</p>
+          </div>
+          <figure class="dataset-visual">
+            <img
+              src="assets/images/resume-jeu-donnees.png"
+              alt="Résumé du jeu de données : catégories, objectifs, nombres de vidéos et nombres d’images."
+              loading="lazy"
+            />
+            <figcaption>
+              Composition du jeu de données utilisé pour les expériences.
+            </figcaption>
+          </figure>
+
+          <h3 class="dataset-subsection">Vidéos réelles (Co3D)</h3>
+          <div class="text-container">
             <p>
-              Les vidéos réelles proviennent du jeu de données <strong>Co3D</strong>. Afin de
-              construire des comparaisons pertinentes, la première et la dernière image d’une vidéo
-              réelle sont fournies à <strong>Dream Machine de Luma AI</strong>. Le modèle doit alors
-              générer la séquence intermédiaire en reproduisant la même scène et un mouvement de
+              Les vidéos réelles proviennent du jeu de données <strong>Co3D</strong>. Elles servent
+              de références pour mesurer les performances du pipeline sur des scènes authentiques.
+            </p>
+          </div>
+
+          <h3 class="dataset-subsection">
+            Vidéos réelles artificiellement déformées (TPS)
+          </h3>
+          <div class="text-container">
+            <p>
+              Cette catégorie est créée en déformant localement une image de vidéos réelles avec une
+              transformation <strong>Thin-Plate Spline</strong>. Ces séquences contrôlées servent à
+              vérifier que la métrique réagit bien à une incohérence géométrique connue.
+            </p>
+          </div>
+          <figure class="dataset-visual">
+            <img
+              src="assets/images/deformation-tps.png"
+              alt="Comparaison entre une image originale et une image localement déformée par transformation Thin-Plate Spline."
+              loading="lazy"
+            />
+            <figcaption>
+              Exemple de déformation locale contrôlée par transformation Thin-Plate Spline.
+            </figcaption>
+          </figure>
+
+          <h3 class="dataset-subsection">Vidéos générées à partir de paires (Luma AI)</h3>
+          <div class="text-container">
+            <p>
+              Afin de construire des comparaisons pertinentes, la première et la dernière image
+              d’une vidéo réelle sont fournies à <strong>Dream Machine de Luma AI</strong>. Le modèle
+              génère la séquence intermédiaire en reproduisant la même scène et un mouvement de
               caméra similaire.
             </p>
           </div>
-          <figure>
+          <figure class="dataset-visual">
             <img
               src="assets/images/protocole-paires.png"
               alt="Protocole de génération d'une vidéo appariée à partir de la première et de la dernière image d'une vidéo réelle."
@@ -219,21 +254,16 @@
               dernière image réelles.
             </figcaption>
           </figure>
+
+          <h4 class="paired-examples-title">Exemples de vidéos appariées</h4>
           <div class="text-container">
             <p>
-              Une troisième catégorie est créée en déformant localement une image de vidéos réelles
-              avec une transformation Thin-Plate Spline. Ces séquences contrôlées servent à vérifier
-              que la métrique réagit bien à une incohérence géométrique connue.
+              Les vidéos réelles et générées représentent une scène aussi proche que possible. Aucun
+              résultat n’est affiché pour le premier exemple.
             </p>
           </div>
 
-          <h3 class="subsection-title">Exemples de vidéos appariées</h3>
-          <p class="section-intro">
-            Les vidéos réelles et générées représentent une scène aussi proche que possible. Aucun
-            résultat n’est affiché pour le premier exemple.
-          </p>
-
-          <h4 class="example-title">Camion-jouet</h4>
+          <h5 class="example-title">Camion-jouet</h5>
           <div class="video-grid">
             <figure>
               <div class="video-title">Vidéo réelle</div>
@@ -251,7 +281,7 @@
             </figure>
           </div>
 
-          <h4 class="example-title">Banc</h4>
+          <h5 class="example-title">Banc</h5>
           <div class="video-grid">
             <figure>
               <div class="video-title">Vidéo réelle</div>
