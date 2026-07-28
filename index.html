@@ -67,19 +67,20 @@
         </div>
       </section>
 
-      <section class="teaser">
-        <div class="container">
-          <figure class="compact-figure">
-            <img
-              src="assets/images/pipeline-reprojection.png"
-              alt="Pipeline de reprojection géométrique entre deux images successives."
-            />
-            <figcaption>
-              Pipeline de reprojection géométrique. Une image est reconstruite en 3D, transformée
-              selon le mouvement estimé de la caméra, puis reprojetée afin d’être comparée à l’image
-              suivante.
-            </figcaption>
-          </figure>
+      <section class="section light-section">
+        <div class="container text-container">
+          <h2>Problématique</h2>
+          <p class="question">
+            Les vidéos générées par intelligence artificielle présentent-elles des incohérences
+            géométriques exploitables pour les distinguer de vidéos authentiques ?
+          </p>
+          <p>
+            Les méthodes traditionnelles recherchent principalement des artefacts numériques liés
+            à la génération, à la compression ou aux statistiques des pixels. Ces traces deviennent
+            cependant moins visibles avec l’amélioration des modèles génératifs. Ce travail explore
+            une autre piste : vérifier si une vidéo respecte les contraintes physiques et
+            géométriques d’une scène tridimensionnelle.
+          </p>
         </div>
       </section>
 
@@ -138,22 +139,7 @@
         </div>
       </section>
 
-      <section class="section light-section">
-        <div class="container text-container">
-          <h2>Problématique</h2>
-          <p class="question">
-            Les vidéos générées par intelligence artificielle présentent-elles des incohérences
-            géométriques exploitables pour les distinguer de vidéos authentiques ?
-          </p>
-          <p>
-            Les méthodes traditionnelles recherchent principalement des artefacts numériques liés
-            à la génération, à la compression ou aux statistiques des pixels. Ces traces deviennent
-            cependant moins visibles avec l’amélioration des modèles génératifs. Ce travail explore
-            une autre piste : vérifier si une vidéo respecte les contraintes physiques et
-            géométriques d’une scène tridimensionnelle.
-          </p>
-        </div>
-      </section>
+
 
       <section class="section">
         <div class="container">
@@ -176,6 +162,30 @@
               <p>Calcul de l’écart entre l’image prédite et l’image observée.</p>
             </div>
           </div>
+          
+
+          
+          <div class="container">
+            <figure class="compact-figure">
+              <img
+                src="assets/images/pipeline-reprojection.png"
+                alt="Pipeline de reprojection géométrique entre deux images successives."
+              />
+              <figcaption>
+                Pipeline de reprojection géométrique. Une image est reconstruite en 3D, transformée
+                selon le mouvement estimé de la caméra, puis reprojetée afin d’être comparée à l’image
+                suivante.
+              </figcaption>
+            </figure>
+          </div>
+      
+
+
+
+
+
+
+
           <div class="text-container method-text">
             <p>
               Les cartes de profondeur sont obtenues avec <strong>Depth Anything</strong>. Les
