@@ -348,11 +348,13 @@
           <article class="experiment">
             <h3>2. Détection d’une image artificiellement modifiée</h3>
             <p>
-              Avant d’étudier les vidéos générées, une unique image est déformée dans 100 vidéos
-              réelles. La méthode localise correctement cette image dans <strong>73 % des cas</strong>,
-              contre 71,59 % pour la métrique GeCo sur ce sous-ensemble. Cette expérience confirme
-              que l’erreur de reprojection est sensible à une incohérence géométrique locale, même
-              lorsque celle-ci reste difficile à voir.
+              Avant d'appliquer notre métrique à la détection de vidéos générées par IA, nous avons vérifié sa sensibilité sur des vidéos réelles contenant une déformation géométrique artificielle (TPS). Dans 100 % des cas, la frame déformée présente une erreur de reprojection plus élevée que les autres, confirmant la capacité de la métrique à détecter des incohérences locales. 
+            </p>
+              De plus, Sur un sous-ensemble de 100 vidéos, la frame modifiée est correctement identifiée dans 73 % des cas, contre 71,59 % pour GeCo. 
+            </p>
+              Ces résultats valident le bon fonctionnement de notre approche avant son application aux vidéos générées par IA. L'expérience montre également que la méthode détecte efficacement des déformations localisées, même lorsqu'elles sont peu visibles. Enfin, une analyse locale de la métrique pourrait améliorer la détection des deepfakes, souvent limités à des régions comme le visage.
+            </p>
+            </p>
             </p>
             <figure>
               <img
