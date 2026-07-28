@@ -1,13 +1,13 @@
 <!doctype html>
-<html lang="fr">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Projet de recherche sur la détection de vidéos générées par intelligence artificielle par analyse de la cohérence géométrique 3D."
+      content="Research project on detecting AI-generated videos through 3D geometric coherence analysis."
     />
-    <title>Détection de vidéos générées par IA — Cohérence géométrique 3D</title>
+    <title>Detecting AI-Generated Videos — 3D Geometric Coherence</title>
     <link rel="stylesheet" href="assets/css/style.css" />
     <script src="assets/js/main.js" defer></script>
   </head>
@@ -17,8 +17,7 @@
       <section class="hero">
         <div class="container">
           <h1>
-            Détection de vidéos générées par intelligence artificielle par analyse de la cohérence
-            géométrique 3D
+            Detecting AI-Generated Videos through 3D Geometric Coherence Analysis
           </h1>
 
           <p class="authors">
@@ -30,8 +29,8 @@
               Félix Conqui
             </a>
           </p>
-          <p class="supervisors">Encadrement scientifique : Emanuel Trabes et Carlos Valderrama</p>
-          <p class="date">Projet de recherche · 2025–2026</p>
+          <p class="supervisors">Scientific supervision: Emanuel Trabes and Carlos Valderrama</p>
+          <p class="date">Research project · 2025–2026</p>
 
           <div class="publication-links">
             <a
@@ -40,12 +39,12 @@
               target="_blank"
               rel="noreferrer"
             >
-              Rapport
+              Report
             </a>
-            <!-- À compléter : remplacer # par l'URL du dépôt public. -->
+            <!-- To be completed: replace # with the public repository URL. -->
             <a class="button button-disabled" href="#" data-placeholder>Code</a>
-            <!-- À compléter : remplacer # par l'URL du jeu de données. -->
-            <a class="button button-disabled" href="#" data-placeholder>Données</a>
+            <!-- To be completed: replace # with the dataset URL. -->
+            <a class="button button-disabled" href="#" data-placeholder>Data</a>
             <a
               class="button"
               href="https://www.linkedin.com/in/f%C3%A9lix-conqui-13b0302a9/"
@@ -57,84 +56,77 @@
           </div>
 
           <p class="publication-note">
-            Conformément aux recommandations de Carlos Valderrama, la publication du code source et
-            du jeu de données est prévue à partir du <strong>7 août</strong>, afin de concentrer les
-            efforts sur la finalisation et la précision du présent rapport dans un premier temps.
-            Les commandes permettant de reproduire toutes les expériences présentées ci-dessous,
-            ainsi que les fichiers de sortie correspondants (CSV), seront quant à elles mises à
-            disposition sur un Drive partagé au plus tard le <strong>1er août</strong>.
+            Following Carlos Valderrama’s recommendations, the source code and dataset are scheduled
+            for release from <strong>August 7</strong> onward, allowing the initial effort to remain
+            focused on finalizing and refining this report. The commands required to reproduce all
+            experiments presented below, together with their corresponding output files (CSV), will
+            be made available on a shared Drive by <strong>August 1</strong>.
           </p>
         </div>
       </section>
 
       <section class="section light-section">
         <div class="container text-container">
-          <h2>Problématique</h2>
+          <h2>Research Question</h2>
           <p class="question">
-            Les vidéos générées par intelligence artificielle présentent-elles des incohérences
-            géométriques exploitables pour les distinguer de vidéos authentiques ?
+            Do AI-generated videos exhibit geometric inconsistencies that can be used to
+            distinguish them from authentic videos?
           </p>
           <p>
-            Les méthodes traditionnelles recherchent principalement des artefacts numériques liés
-            à la génération, à la compression ou aux statistiques des pixels. Ces traces deviennent
-            cependant moins visibles avec l’amélioration des modèles génératifs. Ce travail explore
-            une autre piste : vérifier si une vidéo respecte les contraintes physiques et
-            géométriques d’une scène tridimensionnelle.
+            Traditional methods mainly look for digital artifacts related to generation,
+            compression, or pixel statistics. However, these traces become less visible as
+            generative models improve. This work explores another approach: checking whether a
+            video respects the physical and geometric constraints of a three-dimensional scene.
           </p>
         </div>
       </section>
 
       <section class="section">
         <div class="container text-container">
-          <h2>Résumé</h2>
+          <h2>Abstract</h2>
           <p>
-            Ce projet exploratoire étudie dans quelle mesure les incohérences géométriques peuvent
-            constituer un indice pertinent pour analyser des vidéos générées par intelligence
-            artificielle. L’approche consiste à estimer la profondeur et le mouvement de la caméra,
-            puis à reconstruire une image de la vidéo à partir de la précédente. L’écart entre
-            l’image reconstruite et l’image réellement observée fournit une erreur photométrique,
-            utilisée comme mesure de cohérence géométrique.
+            The approach estimates depth and camera motion, then reconstructs each video frame from
+            the previous one. The difference between the reconstructed frame and the frame actually
+            observed provides a photometric error, which is used as a measure of geometric
+            coherence.
           </p>
           <p>
-            Les résultats montrent que l’hypothèse est partiellement vérifiée. Dans un cadre
-            contrôlé, la métrique détecte des déformations artificielles et distingue généralement
-            une vidéo générée de sa vidéo réelle de référence. En revanche, sur des scènes non
-            appariées, l’erreur dépend trop fortement du contenu, du mouvement et des conditions
-            d’acquisition pour permettre une classification générale fiable.
+            The results support the hypothesis. In a controlled setting, the metric detects
+            artificial deformations and generally distinguishes a generated video from its
+            real-video reference. However, for unpaired scenes, the error depends too strongly on
+            content, motion, and acquisition conditions to support reliable general
+            classification.
           </p>
         </div>
       </section>
 
       <section class="section metric-section">
         <div class="container text-container">
-          <h2>Métrique</h2>
+          <h2>Metric</h2>
           <p>
-            La comparaison repose sur l’<strong>erreur photométrique moyenne absolue</strong>
-            (<em>Mean Absolute Photometric Error</em>, MAE). Pour chaque pixel valide, nous
-            comparons l’intensité de l’image réellement observée à celle de l’image reconstruite par
-            reprojection géométrique.
+            The comparison is based on the <strong>Mean Absolute Photometric Error</strong> (MAE).
+            For each valid pixel, we compare the intensity in the frame actually observed with that
+            in the frame reconstructed through geometric reprojection.
           </p>
 
           <figure class="metric-formula compact-figure">
             <img
-              src="assets/images/formule-mae.png"
-              alt="Formule de l’erreur photométrique moyenne absolue : moyenne des différences absolues entre l’image observée et l’image reconstruite."
+              src="assets/images/mae-formula-en.png"
+              alt="Mean Absolute Photometric Error formula: mean of the absolute differences between the observed and reconstructed frames."
               loading="lazy"
             />
           </figure>
 
           <p>
-            <strong>N</strong> désigne l’ensemble des pixels pouvant être comparés de manière fiable.
-            Les pixels projetés hors de l’image ou masqués par une occultation sont exclus à l’aide
-            du masque de validité et du z-buffer. Une erreur faible indique que le mouvement et la
-            géométrie estimés expliquent correctement l’image suivante ; une erreur élevée signale
-            une incohérence possible.
+            <strong>N</strong> denotes the set of pixels that can be compared reliably. Pixels
+            projected outside the frame or hidden by occlusion are excluded using the validity mask
+            and z-buffer. A low error indicates that the estimated motion and geometry explain the
+            next frame correctly; a high error signals a possible inconsistency.
           </p>
           <p class="metric-limit">
-            Cette erreur ne dépend cependant pas uniquement de l’origine réelle ou générée de la
-            vidéo : la difficulté de la scène et les erreurs d’estimation peuvent également
-            l’augmenter. C’est pourquoi elle est surtout interprétée dans des comparaisons entre
-            vidéos appariées.
+            However, this error does not depend solely on whether a video is real or generated:
+            scene complexity and estimation errors can also increase it. It is therefore primarily
+            interpreted through comparisons between paired videos.
           </p>
         </div>
       </section>
@@ -143,23 +135,23 @@
 
       <section class="section">
         <div class="container">
-          <h2>Méthode</h2>
+          <h2>Method</h2>
           <div class="steps">
             <div class="step">
               <strong>1. Estimation</strong>
-              <p>Estimation de la profondeur, des paramètres de caméra et de la pose relative.</p>
+              <p>Estimate depth, camera parameters, and relative pose.</p>
             </div>
             <div class="step">
               <strong>2. Reconstruction</strong>
-              <p>Transformation des pixels de l’image en points 3D.</p>
+              <p>Transform image pixels into 3D points.</p>
             </div>
             <div class="step">
               <strong>3. Reprojection</strong>
-              <p>Projection des points reconstruits dans l’image suivante.</p>
+              <p>Project the reconstructed points into the next frame.</p>
             </div>
             <div class="step">
-              <strong>4. Comparaison</strong>
-              <p>Calcul de l’écart entre l’image prédite et l’image observée.</p>
+              <strong>4. Comparison</strong>
+              <p>Compute the difference between the predicted and observed frames.</p>
             </div>
           </div>
           
@@ -169,12 +161,12 @@
             <figure class="compact-figure">
               <img
                 src="assets/images/pipeline-reprojection.png"
-                alt="Pipeline de reprojection géométrique entre deux images successives."
+                alt="Geometric reprojection pipeline between two consecutive frames."
               />
               <figcaption>
-                Pipeline de reprojection géométrique. Une image est reconstruite en 3D, transformée
-                selon le mouvement estimé de la caméra, puis reprojetée afin d’être comparée à l’image
-                suivante.
+                Geometric reprojection pipeline. A frame is reconstructed in 3D, transformed
+                according to the estimated camera motion, and then reprojected for comparison with
+                the next frame.
               </figcaption>
             </figure>
           </div>
@@ -188,11 +180,10 @@
 
           <div class="text-container method-text">
             <p>
-              Les cartes de profondeur sont obtenues avec <strong>Depth Anything</strong>. Les
-              paramètres intrinsèques sont estimés avec <strong>VGGT</strong>, retenu pour sa
-              stabilité temporelle. La pose relative est calculée par optimisation géométrique et
-              les occultations sont traitées à l’aide d’un z-buffer. Seuls les pixels considérés
-              comme valides participent au calcul final.
+              Depth maps are obtained with <strong>Depth Anything</strong>. Intrinsic parameters are
+              estimated with <strong>VGGT</strong>, selected for its temporal stability. Relative
+              pose is calculated through geometric optimization, and occlusions are handled with a
+              z-buffer. Only pixels considered valid contribute to the final calculation.
             </p>
           </div>
         </div>
@@ -200,111 +191,110 @@
 
       <section class="section light-section">
         <div class="container">
-          <h2>Création du jeu de données</h2>
+          <h2>Dataset Creation</h2>
           <div class="text-container">
-            <p>Voici son contenu résumé :</p>
+            <p>Its contents are summarized below:</p>
           </div>
           <figure class="dataset-visual compact-figure">
             <img
-              src="assets/images/resume-jeu-donnees.png"
-              alt="Résumé du jeu de données : catégories, objectifs, nombres de vidéos et nombres d’images."
+              src="assets/images/dataset-summary-en.png"
+              alt="Dataset summary: categories, objectives, number of videos, and number of frames."
               loading="lazy"
             />
             <figcaption>
-              Composition du jeu de données utilisé pour les expériences.
+              Composition of the dataset used in the experiments.
             </figcaption>
           </figure>
 
-          <h3 class="dataset-subsection">Vidéos réelles (Co3D)</h3>
+          <h3 class="dataset-subsection">Real Videos (Co3D)</h3>
           <div class="text-container">
             <p>
-              Les vidéos réelles proviennent du jeu de données <strong>Co3D</strong>. Elles servent
-              de références pour mesurer les performances du pipeline sur des scènes authentiques.
+              The real videos come from the <strong>Co3D</strong> dataset. They provide references
+              for measuring pipeline performance on authentic scenes.
             </p>
           </div>
 
           <h3 class="dataset-subsection">
-            Vidéos réelles artificiellement déformées (TPS)
+            Artificially Distorted Real Videos (TPS)
           </h3>
           <div class="text-container">
             <p>
-              Cette catégorie est créée en déformant localement une image de vidéos réelles avec une
-              transformation <strong>Thin-Plate Spline</strong>. Ces séquences contrôlées servent à
-              vérifier que la métrique réagit bien à une incohérence géométrique connue.
+              This category is created by locally distorting one frame from a real video with a
+              <strong>Thin-Plate Spline</strong> transformation. These controlled sequences verify
+              that the metric responds correctly to a known geometric inconsistency.
             </p>
           </div>
           <figure class="dataset-visual compact-figure">
             <img
               src="assets/images/deformation-tps.png"
-              alt="Comparaison entre une image originale et une image localement déformée par transformation Thin-Plate Spline."
+              alt="Comparison between an original frame and a frame locally distorted using a Thin-Plate Spline transformation."
               loading="lazy"
             />
             <figcaption>
-              Exemple de déformation locale contrôlée par transformation Thin-Plate Spline.
+              Example of a controlled local distortion using a Thin-Plate Spline transformation.
             </figcaption>
           </figure>
 
-          <h3 class="dataset-subsection">Vidéos générées à partir de paires (Luma AI)</h3>
+          <h3 class="dataset-subsection">Videos Generated from Pairs (Luma AI)</h3>
           <div class="text-container">
             <p>
-              Afin de construire des comparaisons pertinentes, la première et la dernière image
-              d’une vidéo réelle sont fournies à <strong>Dream Machine de Luma AI</strong>. Le modèle
-              génère la séquence intermédiaire en reproduisant la même scène et un mouvement de
-              caméra similaire.
+              To create meaningful comparisons, the first and last frames of a real video are
+              provided to <strong>Luma AI’s Dream Machine</strong>. The model generates the
+              intermediate sequence while reproducing the same scene and similar camera motion.
             </p>
           </div>
           <figure class="dataset-visual">
             <img
               src="assets/images/protocole-paires.png"
-              alt="Protocole de génération d'une vidéo appariée à partir de la première et de la dernière image d'une vidéo réelle."
+              alt="Protocol for generating a paired video from the first and last frames of a real video."
               loading="lazy"
             />
             <figcaption>
-              Protocole de génération d’une séquence appariée à partir de la première et de la
-              dernière image réelles.
+              Protocol for generating a paired sequence from the first and last frames of a real
+              video.
             </figcaption>
           </figure>
 
-          <h4 class="paired-examples-title">Exemples de vidéos appariées</h4>
+          <h4 class="paired-examples-title">Examples of Paired Videos</h4>
           <div class="text-container">
             <p>
-              Les vidéos réelles et générées représentent une scène aussi proche que possible. Aucun
-              résultat n’est affiché pour le premier exemple.
+              The real and generated videos depict scenes that are as similar as possible. No result
+              is displayed for the first example.
             </p>
           </div>
 
-          <h5 class="example-title">Camion-jouet</h5>
+          <h5 class="example-title">Toy Truck</h5>
           <div class="video-grid">
             <figure>
-              <div class="video-title">Vidéo réelle</div>
+              <div class="video-title">Real Video</div>
               <video controls muted loop playsinline preload="metadata">
                 <source src="assets/videos/toytruck-reel.mp4" type="video/mp4" />
-                Votre navigateur ne prend pas en charge la vidéo HTML5.
+                Your browser does not support HTML5 video.
               </video>
             </figure>
             <figure>
-              <div class="video-title">Vidéo générée</div>
+              <div class="video-title">Generated Video</div>
               <video controls muted loop playsinline preload="metadata">
                 <source src="assets/videos/toytruck-genere.mp4" type="video/mp4" />
-                Votre navigateur ne prend pas en charge la vidéo HTML5.
+                Your browser does not support HTML5 video.
               </video>
             </figure>
           </div>
 
-          <h5 class="example-title">Banc</h5>
+          <h5 class="example-title">Bench</h5>
           <div class="video-grid">
             <figure>
-              <div class="video-title">Vidéo réelle</div>
+              <div class="video-title">Real Video</div>
               <video controls muted loop playsinline preload="metadata">
                 <source src="assets/videos/bench-reel.mp4" type="video/mp4" />
-                Votre navigateur ne prend pas en charge la vidéo HTML5.
+                Your browser does not support HTML5 video.
               </video>
             </figure>
             <figure>
-              <div class="video-title">Vidéo générée</div>
+              <div class="video-title">Generated Video</div>
               <video controls muted loop playsinline preload="metadata">
                 <source src="assets/videos/bench-genere.mp4" type="video/mp4" />
-                Votre navigateur ne prend pas en charge la vidéo HTML5.
+                Your browser does not support HTML5 video.
               </video>
             </figure>
           </div>
@@ -313,42 +303,42 @@
 
       <section class="section">
         <div class="container">
-          <h2>Étude expérimentale</h2>
+          <h2>Experimental Study</h2>
 
           <article class="experiment">
-            <h3>1. Choix des paramètres intrinsèques</h3>
+            <h3>1. Selecting Intrinsic Parameters</h3>
             <p>
-              Les paramètres de caméra devraient rester constants dans les vidéos étudiées, qui ne
-              comportent pas de zoom. Sur 100 vidéos réelles, VGGT fournit des estimations beaucoup
-              plus stables que GeoCalib : l’écart-type moyen est de <strong>9,44 pixels</strong>
-              pour VGGT contre <strong>705 pixels</strong> pour GeoCalib. Le moyennage temporel
-              améliore fortement GeoCalib, mais VGGT conserve l’erreur de reprojection la plus
-              faible et est retenu pour la suite.
+              Camera parameters should remain constant in the videos studied, which do not include
+              zoom. Across 100 real videos, VGGT provides much more stable estimates than GeoCalib:
+              the mean standard deviation is <strong>9.44 pixels</strong> for VGGT, compared with
+              <strong>705 pixels</strong> for GeoCalib. Temporal averaging greatly improves
+              GeoCalib, but VGGT retains the lowest reprojection error and is selected for the
+              remaining experiments.
             </p>
             <div class="table-wrapper">
               <table>
                 <thead>
                   <tr>
-                    <th>Méthode</th>
-                    <th>Erreur absolue moyenne</th>
+                    <th>Method</th>
+                    <th>Mean Absolute Error</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <td>VGGT</td>
-                    <td>5,288</td>
+                    <td>5.288</td>
                   </tr>
                   <tr>
-                    <td>VGGT moyenné</td>
-                    <td><strong>5,224</strong></td>
+                    <td>Averaged VGGT</td>
+                    <td><strong>5.224</strong></td>
                   </tr>
                   <tr>
                     <td>GeoCalib</td>
-                    <td>9,297</td>
+                    <td>9.297</td>
                   </tr>
                   <tr>
-                    <td>GeoCalib moyenné</td>
-                    <td>5,397</td>
+                    <td>Averaged GeoCalib</td>
+                    <td>5.397</td>
                   </tr>
                 </tbody>
               </table>
@@ -356,168 +346,170 @@
           </article>
 
           <article class="experiment">
-            <h3>2. Détection d’une image artificiellement modifiée</h3>
+            <h3>2. Detecting an Artificially Modified Frame</h3>
             <p>
-              Avant d'appliquer notre métrique à la détection de vidéos générées par IA, nous avons vérifié sa sensibilité sur des vidéos réelles contenant une déformation géométrique artificielle (TPS). Dans 100 % des cas, la frame déformée présente une erreur de reprojection plus élevée que les autres, confirmant la capacité de la métrique à détecter des incohérences locales. 
+              Before applying our metric to the detection of AI-generated videos, we tested its
+              sensitivity on real videos containing an artificial geometric distortion (TPS). In
+              100% of cases, the distorted frame has a higher reprojection error than the other
+              frames, confirming the metric’s ability to detect local inconsistencies.
             </p>
-              De plus, Sur un sous-ensemble de 100 vidéos, la frame modifiée est correctement identifiée dans 73 % des cas, contre 71,59 % pour GeCo. 
+            <p>
+              In addition, across a subset of 100 videos, the modified frame is correctly identified
+              in 73% of cases, compared with 71.59% for GeCo.
             </p>
-              Ces résultats valident le bon fonctionnement de notre approche avant son application aux vidéos générées par IA. L'expérience montre également que la méthode détecte efficacement des déformations localisées, même lorsqu'elles sont peu visibles. Enfin, une analyse locale de la métrique pourrait améliorer la détection des deepfakes, souvent limités à des régions comme le visage.
-            </p>
-            </p>
+            <p>
+              These results validate our approach before it is applied to AI-generated videos. The
+              experiment also shows that the method effectively detects localized distortions, even
+              when they are difficult to see. Finally, a local analysis of the metric could improve
+              deepfake detection, since such alterations are often limited to regions such as the
+              face.
             </p>
             <figure>
               <img
                 src="assets/images/Capture d'écran 2026-07-28 134451.png"
-                alt="Évolution temporelle de l'erreur permettant de détecter une image artificiellement déformée."
+                alt="Temporal evolution of the error used to detect an artificially distorted frame."
                 loading="lazy"
               />
               <figcaption>
-                Détection temporelle d’une image artificiellement déformée dans la séquence
-                toytruck.
+                Temporal detection of an artificially distorted frame in the toy-truck sequence.
               </figcaption>
             </figure>
           </article>
 
           <article class="experiment">
-            <h3>3. Comparaison de vidéos réelles et générées appariées</h3>
+            <h3>3. Comparing Paired Real and Generated Videos</h3>
             <p>
-              Sur <strong>27 paires parmi 33</strong>, la vidéo générée présente une erreur
-              photométrique plus élevée que la vidéo réelle. En moyenne, l’erreur passe de
-              <strong>5,894</strong> pour les vidéos réelles à <strong>8,944</strong> pour les vidéos
-              générées. Lorsque les deux séquences représentent la même scène, une partie de la
-              variabilité liée au contenu est neutralisée.
+              In <strong>27 of the 33 pairs</strong>, the generated video has a higher photometric
+              error than the real video. On average, the error rises from <strong>5.894</strong> for
+              real videos to <strong>8.944</strong> for generated videos. When both sequences depict
+              the same scene, some of the content-related variability is neutralized.
             </p>
             <p>
-              Pour la séquence du banc, l’erreur moyenne vaut 7,359 sur la vidéo réelle et 12,058
-              sur la vidéo générée. L’écart est présent sur une grande partie de la séquence et ne
-              repose pas sur une seule image.
+              For the bench sequence, the mean error is 7.359 for the real video and 12.058 for the
+              generated video. The difference is present across much of the sequence and is not
+              based on a single frame.
             </p>
             <figure>
               <img
                 src="assets/images/deformation-detectee.png"
-                alt="Comparaison de l'erreur photométrique image par image pour les vidéos réelle et générée de la séquence bench."
+                alt="Frame-by-frame comparison of the photometric error for the real and generated videos in the bench sequence."
                 loading="lazy"
               />
               <figcaption>
-                Comparaison image par image pour la séquence bench : score réel 7,359 et score
-                généré 12,058.
+                Frame-by-frame comparison for the bench sequence: real-video score 7.359 and
+                generated-video score 12.058.
               </figcaption>
             </figure>
             <p>
-              Une heatmap des erreurs a également été créée. Elle permet de visualiser les zones
-              de l’image où l’erreur est la plus élevée et de bien identifier les endroits de la
-              scène qui sont incohérents.
+              An error heatmap was also created. It highlights the areas of the frame where the
+              error is highest and clearly identifies inconsistent regions in the scene.
             </p>
             <div class="video-grid heatmap-comparison">
               <figure>
-                <div class="video-title">Vidéo source</div>
+                <div class="video-title">Source Video</div>
                 <video controls muted loop playsinline preload="metadata">
                   <source src="426_59761_116348_toaster_1_src16.mp4" type="video/mp4" />
-                  Votre navigateur ne prend pas en charge la vidéo HTML5.
+                  Your browser does not support HTML5 video.
                 </video>
               </figure>
               <figure>
-                <div class="video-title">Heatmap des erreurs</div>
+                <div class="video-title">Error Heatmap</div>
                 <video controls muted loop playsinline preload="metadata">
                   <source
                     src="426_59761_116348_toaster_3_structure_map.mp4"
                     type="video/mp4"
                   />
-                  Votre navigateur ne prend pas en charge la vidéo HTML5.
+                  Your browser does not support HTML5 video.
                 </video>
               </figure>
             </div>
           </article>
 
           <article class="experiment important-result">
-            <h3>4. Résultats sur l’ensemble du jeu de données</h3>
+            <h3>4. Results across the Full Dataset</h3>
             <p>
-              Lorsque les vidéos ne sont plus comparées par paire, le résultat est beaucoup moins
-              net. L’erreur moyenne atteint <strong>5,90</strong> pour les vidéos réelles,
-              <strong>6,16</strong> pour les vidéos générées et <strong>9,0</strong> pour les vidéos
-              artificiellement déformées.
+              When videos are no longer compared in pairs, the result is much less clear. The mean
+              error reaches <strong>5.90</strong> for real videos, <strong>6.16</strong> for
+              generated videos, and <strong>9.0</strong> for artificially distorted videos.
             </p>
             <div class="table-wrapper">
               <table>
                 <thead>
                   <tr>
-                    <th>Groupe</th>
-                    <th>Erreur moyenne</th>
+                    <th>Group</th>
+                    <th>Mean Error</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Vidéos réelles</td>
-                    <td>5,90</td>
+                    <td>Real videos</td>
+                    <td>5.90</td>
                   </tr>
                   <tr>
-                    <td>Vidéos générées par IA</td>
-                    <td>6,16</td>
+                    <td>AI-generated videos</td>
+                    <td>6.16</td>
                   </tr>
                   <tr>
-                    <td>Vidéos artificiellement modifiées</td>
+                    <td>Artificially modified videos</td>
                     <td>9,0</td>
                   </tr>
                 </tbody>
               </table>
             </div>
             <p>
-              Les distributions des vidéos réelles et générées se recouvrent. Un seuil placé entre
-              5,90 et 6,16 produirait donc de nombreux faux positifs et faux négatifs. Une vidéo
-              réelle complexe peut obtenir une erreur supérieure à une vidéo générée simple. Le
-              score mesure non seulement l’origine de la vidéo, mais aussi la texture, la vitesse du
-              mouvement, les occultations, l’éclairage et la difficulté générale de la scène.
+              The distributions of real and generated videos overlap. A threshold set between 5.90
+              and 6.16 would therefore produce many false positives and false negatives. A complex
+              real video may receive a higher error than a simple generated video. The score
+              reflects not only the video’s origin, but also texture, motion speed, occlusions,
+              lighting, and the overall complexity of the scene.
             </p>
             <p class="conclusion-line">
-              La métrique est donc plus solide pour une comparaison relative entre deux vidéos
-              similaires que pour une décision absolue sur une vidéo arbitraire.
+              The metric is therefore more robust for relative comparisons between two similar
+              videos than for making an absolute decision about an arbitrary video.
             </p>
           </article>
 
           <article class="experiment">
-            <h3>5. Classification supervisée</h3>
+            <h3>5. Supervised Classification</h3>
             <p>
-              Pour éviter de définir manuellement un seuil, les caractéristiques extraites par le
-              pipeline sont données à un classifieur ExtraTrees. La précision obtenue est d’environ
-              <strong>60 %</strong>. Ce résultat dépasse légèrement le hasard pour un problème
-              binaire équilibré, mais reste insuffisant pour valider une détection fiable.
+              To avoid setting a threshold manually, the features extracted by the pipeline are fed
+              into an ExtraTrees classifier. The resulting accuracy is approximately
+              <strong>60%</strong>. This result is slightly above chance for a balanced binary
+              problem, but remains insufficient to validate reliable detection.
             </p>
             <figure>
               <img
-                src="assets/images/classification-supervisee.png"
-                alt="Pipeline de classification supervisée à partir des caractéristiques extraites pour chaque image."
+                src="assets/images/classification-pipeline-en.png"
+                alt="Supervised classification pipeline based on the features extracted for each frame."
                 loading="lazy"
               />
               <figcaption>
-                Chaîne de classification supervisée à partir des caractéristiques extraites par le
-                pipeline.
+                Supervised classification pipeline based on the features extracted by the
+                processing pipeline.
               </figcaption>
             </figure>
             <p>
-              Les caractéristiques actuelles restent très dépendantes de la scène et plusieurs
-              d’entre elles reposent sur les mêmes estimations de profondeur et de caméra. Leur
-              combinaison apporte donc en partie de la redondance. L’ajout des sorties de
-              <strong>GeCo</strong> n’améliore pas significativement cette classification globale.
-              Dans le protocole actuel, l’hypothèse selon laquelle un classifieur simple pourrait
-              apprendre automatiquement un seuil général n’est donc pas validée.
+              The current features remain highly scene-dependent, and several rely on the same
+              depth and camera estimates. Combining them therefore introduces some redundancy.
+              Adding <strong>GeCo</strong> outputs does not significantly improve this overall
+              classification. Under the current protocol, the hypothesis that a simple classifier
+              could automatically learn a general threshold is therefore not validated.
             </p>
           </article>
 
           <article class="experiment">
-            <h3>6. Sensibilité aux conditions d’acquisition et au prompt</h3>
+            <h3>6. Sensitivity to Acquisition Conditions and Prompting</h3>
             <p>
-              Sur 30 vidéos, diminuer la fréquence d’images entraîne une augmentation moyenne de
-              l’erreur de <strong>26 %</strong>. Une fréquence plus faible augmente le déplacement
-              apparent entre deux images et rend l’estimation de profondeur, de pose et la
-              reprojection plus difficiles. Les vidéos comparées doivent donc présenter des
-              vitesses de mouvement similaires.
+              Across 30 videos, reducing the frame rate causes an average error increase of
+              <strong>26%</strong>. A lower frame rate increases the apparent displacement between
+              two frames and makes depth estimation, pose estimation, and reprojection more
+              difficult. Compared videos must therefore exhibit similar motion speeds.
             </p>
             <p>
-              Une étude limitée montre également que le prompt influence la cohérence géométrique.
-              Dans 8 cas sur 10, l’ajout d’une consigne demandant explicitement de respecter la
-              cohérence géométrique diminue l’erreur. Le nombre d’essais reste cependant trop faible
-              pour conclure à un effet général.
+              A limited study also shows that the prompt influences geometric coherence. In 8 out
+              of 10 cases, adding an explicit instruction to preserve geometric coherence reduces
+              the error. However, the number of trials remains too small to establish a general
+              effect.
             </p>
           </article>
         </div>
@@ -525,34 +517,32 @@
 
       <section class="section light-section">
         <div class="container text-container">
-          <h2>Analyse et limites</h2>
+          <h2>Analysis and Limitations</h2>
           <p>
-            <strong>À notre connaissance, ce travail apporte une première démonstration
-            expérimentale rigoureuse que les vidéos générées par intelligence artificielle
-            présentent des incohérences géométriques mesurables.</strong> L’hypothèse n’est pas
-            uniquement validée par quelques observations visuelles : elle est évaluée à l’aide d’un
-            protocole contrôlé, d’une métrique explicite et de résultats quantitatifs reproductibles.
-            La méthode localise une déformation artificielle dans 73 % des séquences et attribue une
-            erreur plus élevée à la vidéo générée dans 27 des 33 paires étudiées.
+            <strong>To our knowledge, this work provides the first rigorous experimental
+            demonstration that AI-generated videos exhibit measurable geometric
+            inconsistencies.</strong> The hypothesis is not supported solely by a few visual
+            observations: it is evaluated using a controlled protocol, an explicit metric, and
+            reproducible quantitative results. The method locates an artificial distortion in 73%
+            of the sequences and assigns a higher error to the generated video in 27 of the 33
+            pairs studied.
           </p>
           <p>
-            Ces deux expériences indépendantes montrent que l’erreur de reprojection ne réagit pas
-            de manière aléatoire : lorsqu’une vidéo réelle et une vidéo générée représentent la même
-            scène, la version générée est généralement plus difficile à expliquer par une
-            profondeur, une caméra et un mouvement rigide cohérents. Le projet établit ainsi un
-            premier protocole quantitatif permettant de transformer une intuition (les modèles
-            vidéo ne respectent pas toujours la géométrie 3D) en un phénomène physique observable
-            et mesurable.
+            These two independent experiments show that the reprojection error does not behave
+            randomly: when a real video and a generated video depict the same scene, the generated
+            version is generally more difficult to explain using coherent depth, camera parameters,
+            and rigid motion. The project therefore establishes an initial quantitative protocol
+            that turns an intuition—that video models do not always respect 3D geometry—into an
+            observable and measurable physical phenomenon.
           </p>
           <p>
-            L’étude permet également d’identifier précisément le domaine de validité de ce résultat.
-            La preuve est solide pour des comparaisons appariées et des scènes rigides, mais elle ne
-            constitue pas encore un détecteur universel : sur des scènes non appariées, le mouvement,
-            les occultations et la difficulté de reconstruction influencent aussi le score. Cette
-            limite ouvre directement la suite du travail : normaliser la métrique selon la dynamique
-            de la scène, intégrer des informations sémantiques et exploiter d’autres contraintes
-            physiques telles que les lignes, les plans, les normales, les ombres ou les trajectoires
-            3D.
+            The study also precisely identifies the conditions under which this result is valid.
+            The evidence is strong for paired comparisons and rigid scenes, but it does not yet
+            constitute a universal detector: in unpaired scenes, motion, occlusions, and
+            reconstruction difficulty also influence the score. This limitation directly motivates
+            future work: normalizing the metric according to scene dynamics, integrating semantic
+            information, and exploiting other physical constraints such as lines, planes, normals,
+            shadows, or 3D trajectories.
           </p>
         </div>
       </section>
@@ -561,7 +551,7 @@
     <footer>
       <div class="container">
         <p>
-          Projet réalisé par
+          Project by
           <a
             href="https://www.linkedin.com/in/f%C3%A9lix-conqui-13b0302a9/"
             target="_blank"
@@ -572,7 +562,7 @@
           · 2026
         </p>
         <p>
-          Page inspirée de la mise en forme des pages de projets académiques, notamment GeCo.
+          Page layout inspired by academic project pages, particularly GeCo.
         </p>
       </div>
     </footer>

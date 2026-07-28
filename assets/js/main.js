@@ -2,7 +2,7 @@ const placeholderLinks = document.querySelectorAll("[data-placeholder]");
 
 placeholderLinks.forEach((link) => {
   link.setAttribute("aria-disabled", "true");
-  link.setAttribute("title", "Lien à compléter avant publication");
+  link.setAttribute("title", "Link to be added before publication");
   link.addEventListener("click", (event) => event.preventDefault());
 });
 
