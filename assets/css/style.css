@@ -156,12 +156,12 @@ h3 {
 
 .animation-section {
   overflow: hidden;
-  padding: 3.5rem 0 4rem;
+  padding: 1.75rem 0 2rem;
   background: #181818;
 }
 
 .animation-container {
-  width: min(calc(100% - 32px), 1200px);
+  width: min(calc(100% - 32px), 600px);
   margin-inline: auto;
 }
 
