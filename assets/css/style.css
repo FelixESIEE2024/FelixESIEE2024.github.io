@@ -156,17 +156,19 @@ h3 {
 
 .animation-section {
   overflow: hidden;
-  padding: 1.75rem 0 2rem;
+  padding: 0.875rem 0 1rem;
   background: #181818;
 }
 
 .animation-container {
-  width: min(calc(100% - 32px), 600px);
+  width: min(calc(100% - 32px), 300px);
   margin-inline: auto;
 }
 
 .animation-section h2 {
+  margin-bottom: 0.75rem;
   color: var(--white);
+  font-size: 1.4rem;
 }
 
 .ambient-video {
