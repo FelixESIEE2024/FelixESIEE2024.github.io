@@ -154,6 +154,31 @@ h3 {
   background: var(--light);
 }
 
+.animation-section {
+  overflow: hidden;
+  padding: 3.5rem 0 4rem;
+  background: #181818;
+}
+
+.animation-container {
+  width: min(calc(100% - 32px), 1200px);
+  margin-inline: auto;
+}
+
+.animation-section h2 {
+  color: var(--white);
+}
+
+.ambient-video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin-inline: auto;
+  background: #181818;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+}
+
 .metric-section {
   padding-top: 0.5rem;
 }

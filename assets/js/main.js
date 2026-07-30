@@ -6,7 +6,27 @@ placeholderLinks.forEach((link) => {
   link.addEventListener("click", (event) => event.preventDefault());
 });
 
-const videos = document.querySelectorAll("video");
+const ambientVideo = document.querySelector(".ambient-video");
+
+if (ambientVideo) {
+  ambientVideo.muted = true;
+
+  const startAmbientVideo = () => {
+    ambientVideo.play().catch(() => {
+      // Muted autoplay may still be deferred until the page becomes active.
+    });
+  };
+
+  startAmbientVideo();
+  ambientVideo.addEventListener("canplay", startAmbientVideo, { once: true });
+  document.addEventListener("visibilitychange", () => {
+    if (!document.hidden) {
+      startAmbientVideo();
+    }
+  });
+}
+
+const videos = document.querySelectorAll("video:not(.ambient-video)");
 
 videos.forEach((video) => {
   video.addEventListener("play", () => {
